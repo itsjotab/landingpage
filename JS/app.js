@@ -55,23 +55,24 @@ const navContainer = () => {
 
 // Add class 'active' to section when near top of viewport
 //getting value of position
-const value = (section) => {
+const offset = (section) => {
     return Math.floor (section.getBoundingClientRect().top);
 };
 // remove your active class
 const removeActive = (section) => {
-    sections.classList.remove('your-active-class');
+    section.classList.remove('your-active-class');
 };
 // add active class
 const addActive = (conditonal, section) => {
     if(conditonal){
-        sections.classList.add('your-active-class');
+        section.classList.add('your-active-class');
     };
 };
+
 //function implementing
 const sectionActivation = () => {
-    section.forEach(section => {
-        const elementOffset = position(section);
+    sections.forEach(section => {
+        const elementOffset = offset(section);
  
         inviewport = () => elementOffset < 100 && elementOffset >= -100;
 
@@ -80,7 +81,7 @@ const sectionActivation = () => {
   });
 };
 //event listnener
-navBar.addEventListener('scroll' ,sectionActivation);
+window.addEventListener('scroll' ,sectionActivation);
 
 // Scroll to anchor ID using scrollTO event
 function scrollToClick() {
