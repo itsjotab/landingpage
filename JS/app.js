@@ -68,7 +68,6 @@ const addActive = (conditonal, section) => {
         sections.classList.add('your-active-class');
     };
 };
-
 //function implementing
 const sectionActivation = () => {
     section.forEach(section => {
